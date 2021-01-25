@@ -2,23 +2,30 @@
 <html>
     <head>
         <title>DeepParking</title>
-        <style>
-                div {
-                    width: 100px;
-                    height: 100px;
-                    position: absolute;
-                    top:0;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
+        
+        <script>
+            
+         function counter() {
+          var i = 0;
+          var element = document.getElementById("output");
+          var funcNameHere = function() {
+            element.innerHTML = `${i}%`
+            if (i == 100) clearInterval(this);
+            else console.log('Currently at ' + (i++));
+          };
+          // This block will be executed 100 times.
+          setInterval(funcNameHere, 70);
+          funcNameHere();
+        } // End    
 
-                    margin: auto;
-                }
-         </style>
+        </script>
         
     </head>
     <body>
-       <div>Working now</div>
-       <a href="https://openlayers.org/en/latest/examples/localized-openstreetmap.html">Map</a>
+        <div id="output">0%
+        </div>
+        <button onclick="counter();">
+        start
+        </button>
     </body>
 </html>
